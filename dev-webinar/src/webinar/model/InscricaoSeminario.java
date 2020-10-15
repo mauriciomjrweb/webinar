@@ -6,8 +6,8 @@ import javax.persistence.Id;
 
 public class InscricaoSeminario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/*@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	private int id;
 	private Aluno aluno;
 	private Seminario seminario;

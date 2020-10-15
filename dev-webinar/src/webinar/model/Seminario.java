@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Seminario {
@@ -18,6 +19,7 @@ public class Seminario {
 	private String nome;
 	private int numero;
 	private double taxa;
+	@OneToMany
 	private List<Instrutor> instrutores;
 
 	public Seminario() {

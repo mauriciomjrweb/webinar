@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Aluno {
@@ -14,6 +15,7 @@ public class Aluno {
 	private int id;
 	private String matricula;
 	private String nome;
+	@OneToOne
 	private Endereco endereco;
 	private String email;
 

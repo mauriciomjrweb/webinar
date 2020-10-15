@@ -1,16 +1,28 @@
 package webinar.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class InscricaoSeminario {
 
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@ManyToOne
+	@JoinColumn(name="aluno_id")
 	private Aluno aluno;
+	
+	@ManyToOne
+	@JoinColumn(name="seminario_id")
 	private Seminario seminario;
+	
 	private String datainscricao;
 
 	public InscricaoSeminario() {

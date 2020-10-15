@@ -11,7 +11,13 @@
   <property name="javax.persistence.jdbc.user" value="root" />
   <property name="javax.persistence.jdbc.password" value="1234" />
   <property name="hibernate.show_sql" value="true" />
-  <property name="hibernate.hbm2ddl.auto" value="create" />
+  <property name="hibernate.hbm2ddl.auto" value="update" />
  </properties>
 </persistence-unit>
 </persistence>
+
+<!-- validate: valida o esquema, nenhuma alteração acontece no banco de dados.
+update: atualiza o esquema com a consulta de execução atual.
+create: cria novo esquema todas as vezes e destrói dados anteriores.
+create-drop: elimina o esquema quando o aplicativo é parado ou o SessionFactory é fechado explicitamente.
+-->

@@ -1,6 +1,7 @@
 package webinar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +22,9 @@ public class Seminario {
 	private double taxa;
 	@OneToMany
 	private List<Instrutor> instrutores;
+	
+	@OneToMany(mappedBy = "seminario")
+	Set<InscricaoSeminario> inscricoes = new HashSet<InscricaoSeminario>();
 
 	public Seminario() {
 		this.instrutores = new ArrayList<Instrutor>();

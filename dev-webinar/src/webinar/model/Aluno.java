@@ -1,11 +1,15 @@
 package webinar.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,9 +19,12 @@ public class Aluno {
 	private int id;
 	private String matricula;
 	private String nome;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	private String email;
+
+	@OneToMany(mappedBy = "aluno")
+	private Set<InscricaoSeminario> inscricoes = new HashSet<InscricaoSeminario>();
 
 	public Aluno() {
 	}
@@ -67,6 +74,14 @@ public class Aluno {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Set<InscricaoSeminario> getInscricoes() {
+		return inscricoes;
+	}
+
+	public void setInscricoes(Set<InscricaoSeminario> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
 
 }

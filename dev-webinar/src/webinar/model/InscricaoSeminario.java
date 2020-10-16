@@ -14,15 +14,15 @@ public class InscricaoSeminario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="aluno_id")
+	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
-	
+
 	@ManyToOne
-	@JoinColumn(name="seminario_id")
+	@JoinColumn(name = "seminario_id")
 	private Seminario seminario;
-	
+
 	private String datainscricao;
 
 	public InscricaoSeminario() {

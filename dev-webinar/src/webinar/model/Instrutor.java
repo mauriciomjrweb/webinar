@@ -2,12 +2,28 @@ package webinar.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Instrutor {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	private String email;
 	private double salario;
+	
+	@Enumerated(EnumType.STRING)
 	private Formacao formacao;
 
 	public Instrutor() {

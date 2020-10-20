@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Seminario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -22,7 +22,7 @@ public class Seminario {
 	private double taxa;
 	@OneToMany
 	private List<Instrutor> instrutores;
-	
+
 	@OneToMany(mappedBy = "seminario")
 	Set<InscricaoSeminario> inscricoes = new HashSet<InscricaoSeminario>();
 
@@ -79,6 +79,14 @@ public class Seminario {
 
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutores.add(instrutor);
+	}
+
+	public Set<InscricaoSeminario> getInscricoes() {
+		return inscricoes;
+	}
+
+	public void setInscricoes(Set<InscricaoSeminario> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
 
 }
